@@ -238,37 +238,51 @@
             <p>Master the fundamentals with interactive examples</p>
         </div>
 
-        <!-- Two Pointers Pattern -->
-        <div class="pattern-card">
-            <h2 class="pattern-title">
-                <span class="pattern-icon">👆</span>
-                Two Pointers Pattern
-            </h2>
-            
-            <div class="concept">
-                <strong>Core Concept:</strong> Use two pointers moving toward each other or in the same direction to solve problems efficiently in O(n) time instead of O(n²).
-            </div>
-            
-            <div class="code-container">
-                <div class="code"><span class="comment">// Classic Two Pointers Template</span>
-<span class="keyword">function</span> twoPointers(arr, target) {
-    <span class="keyword">let</span> left = <span class="number">0</span>;
-    <span class="keyword">let</span> right = arr.length - <span class="number">1</span>;
+<!-- Two Pointers Pattern with Explanations -->
+<div class="pattern-card">
+    <h2 class="pattern-title">
+        <span class="pattern-icon">👆</span>
+        Two Pointers Pattern (Python)
+    </h2>
     
-    <span class="keyword">while</span> (left < right) {
-        <span class="keyword">let</span> sum = arr[left] + arr[right];
+    <div class="concept">
+        <strong>Core Concept:</strong> Imagine you're looking for a pair of numbers in a sorted list. Instead of checking every combination (which would be slow), we use two markers that start at opposite ends and move toward each other. This reduces the time complexity from O(n²) to O(n)!
+    </div>
+
+    <div class="code-container">
+        <div class="code"><span class="comment"># Python implementation of Two Pointers</span>
+<span class="keyword">def</span> two_pointers(arr, target):
+    <span class="comment"># Start with pointers at both ends</span>
+    left = 0
+    right = len(arr) - 1
+    
+    <span class="keyword">while</span> left < right:
+        current_sum = arr[left] + arr[right]
         
-        <span class="keyword">if</span> (sum === target) {
-            <span class="keyword">return</span> [left, right];
-        } <span class="keyword">else if</span> (sum < target) {
-            left++; <span class="comment">// Need larger sum</span>
-        } <span class="keyword">else</span> {
-            right--; <span class="comment">// Need smaller sum</span>
-        }
-    }
-    <span class="keyword">return</span> [-<span class="number">1</span>, -<span class="number">1</span>];
-}</div>
-            </div>
+        <span class="comment"># Found the perfect pair!</span>
+        <span class="keyword">if</span> current_sum == target:
+            <span class="keyword">return</span> [left, right]
+            
+        <span class="comment"># If sum is too small, move left pointer right</span>
+        <span class="keyword">elif</span> current_sum < target:
+            left += 1
+            
+        <span class="comment"># If sum is too big, move right pointer left</span>
+        <span class="keyword">else</span>:
+            right -= 1
+    
+    <span class="comment"># If we exit the loop, no pair found</span>
+    <span class="keyword">return</span> [-1, -1]
+
+<span class="comment"># Example usage:</span>
+<span class="comment"># print(two_pointers([1, 2, 3, 4, 6], 6)) → [0, 4]</span></div>
+    </div>
+
+    <div class="explanation">
+        <h3>🧠 Understanding the Logic</h3>
+        <p>This pattern works because the array is <strong>sorted</strong>. When we move the left pointer right, we're asking for a larger sum. When we move the right pointer left, we're reducing the sum. This intelligent pointer movement helps us find the answer in linear time!</p>
+    </div>
+</div>
             
             <div class="interactive-section">
                 <h3>🎯 Try it: Two Sum in Sorted Array</h3>
@@ -292,57 +306,45 @@
             </div>
         </div>
 
-        <!-- Sliding Window Pattern -->
-        <div class="pattern-card">
-            <h2 class="pattern-title">
-                <span class="pattern-icon">🪟</span>
-                Sliding Window Pattern
-            </h2>
-            
-            <div class="concept">
-                <strong>Core Concept:</strong> Maintain a "window" of elements and slide it through the array. Perfect for subarray problems.
-            </div>
-            
-            <div class="code-container">
-                <div class="code"><span class="comment">// Fixed Size Sliding Window</span>
-<span class="keyword">function</span> maxSumFixedWindow(arr, k) {
-    <span class="keyword">let</span> maxSum = <span class="number">0</span>, windowSum = <span class="number">0</span>;
+<!-- Sliding Window Pattern with Explanations -->
+<div class="pattern-card">
+    <h2 class="pattern-title">
+        <span class="pattern-icon">🪟</span>
+        Sliding Window Pattern (Python)
+    </h2>
     
-    <span class="comment">// Calculate first window</span>
-    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i < k; i++) {
-        windowSum += arr[i];
-    }
-    maxSum = windowSum;
-    
-    <span class="comment">// Slide the window</span>
-    <span class="keyword">for</span> (<span class="keyword">let</span> i = k; i < arr.length; i++) {
-        windowSum = windowSum - arr[i - k] + arr[i];
-        maxSum = Math.max(maxSum, windowSum);
-    }
-    
-    <span class="keyword">return</span> maxSum;
-}
+    <div class="concept">
+        <strong>Core Concept:</strong> Picture a window sliding over your array. Instead of recalculating everything each time, we maintain a running total by subtracting the element leaving the window and adding the new element entering it. This is perfect for finding subarrays with specific properties!
+    </div>
 
-<span class="comment">// Variable Size Sliding Window</span>
-<span class="keyword">function</span> longestSubarrayWithSum(arr, target) {
-    <span class="keyword">let</span> left = <span class="number">0</span>, sum = <span class="number">0</span>, maxLength = <span class="number">0</span>;
+    <div class="code-container">
+        <div class="code"><span class="comment"># Python implementation of Sliding Window</span>
+<span class="keyword">def</span> max_subarray_sum(arr, k):
+    <span class="comment"># Handle edge case</span>
+    <span class="keyword">if</span> len(arr) < k:
+        <span class="keyword">return</span> -1
     
-    <span class="keyword">for</span> (<span class="keyword">let</span> right = <span class="number">0</span>; right < arr.length; right++) {
-        sum += arr[right];
-        
-        <span class="keyword">while</span> (sum > target && left <= right) {
-            sum -= arr[left];
-            left++;
-        }
-        
-        <span class="keyword">if</span> (sum === target) {
-            maxLength = Math.max(maxLength, right - left + <span class="number">1</span>);
-        }
-    }
+    <span class="comment"># Calculate first window sum</span>
+    window_sum = sum(arr[:k])
+    max_sum = window_sum
     
-    <span class="keyword">return</span> maxLength;
-}</div>
-            </div>
+    <span class="comment"># Slide the window through the array</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(k, len(arr)):
+        <span class="comment"># Subtract outgoing element, add incoming element</span>
+        window_sum += arr[i] - arr[i - k]
+        max_sum = max(max_sum, window_sum)
+    
+    <span class="keyword">return</span> max_sum
+
+<span class="comment"># Example usage:</span>
+<span class="comment"># print(max_subarray_sum([2, 1, 5, 1, 3, 2], 3)) → 9</span></div>
+    </div>
+
+    <div class="explanation">
+        <h3>🚪 How the Window Slides</h3>
+        <p>The key insight is that we don't need to recalculate the entire window sum each time. By maintaining a running total and adjusting it as the window moves, we save computation time. This reduces the time complexity from O(n*k) to O(n) - a huge improvement!</p>
+    </div>
+</div>
             
             <div class="interactive-section">
                 <h3>🎯 Try it: Maximum Sum of K Elements</h3>
@@ -366,58 +368,44 @@
             </div>
         </div>
 
-        <!-- Fast & Slow Pointers -->
-        <div class="pattern-card">
-            <h2 class="pattern-title">
-                <span class="pattern-icon">🐢🐰</span>
-                Fast & Slow Pointers (Floyd's Algorithm)
-            </h2>
-            
-            <div class="concept">
-                <strong>Core Concept:</strong> Two pointers moving at different speeds. The fast pointer moves 2 steps, slow moves 1 step. Used for cycle detection and finding middle elements.
-            </div>
-            
-            <div class="code-container">
-                <div class="code"><span class="comment">// Detect cycle in linked list</span>
-<span class="keyword">function</span> hasCycle(head) {
-    <span class="keyword">let</span> slow = head, fast = head;
+<!-- Fast & Slow Pointers with Explanations -->
+<div class="pattern-card">
+    <h2 class="pattern-title">
+        <span class="pattern-icon">🐢🐰</span>
+        Fast & Slow Pointers (Python)
+    </h2>
     
-    <span class="keyword">while</span> (fast && fast.next) {
-        slow = slow.next;        <span class="comment">// Move 1 step</span>
-        fast = fast.next.next;   <span class="comment">// Move 2 steps</span>
+    <div class="concept">
+        <strong>Core Concept:</strong> Also known as "Floyd's Tortoise and Hare", this pattern uses two pointers moving at different speeds. The slow pointer moves 1 step at a time while the fast moves 2 steps. This helps detect cycles and find middle elements efficiently.
+    </div>
+
+    <div class="code-container">
+        <div class="code"><span class="comment"># Python implementation for Cycle Detection</span>
+<span class="keyword">class</span> Node:
+    <span class="keyword">def</span> __init__(self, value):
+        self.value = value
+        self.next = None
+
+<span class="keyword">def</span> has_cycle(head):
+    <span class="comment"># Initialize both pointers at head</span>
+    slow = head
+    fast = head
+    
+    <span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:
+        slow = slow.next        <span class="comment"># Tortoise moves 1 step</span>
+        fast = fast.next.next   <span class="comment"># Hare moves 2 steps</span>
         
-        <span class="keyword">if</span> (slow === fast) {
-            <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">// Cycle detected</span>
-        }
-    }
+        <span class="keyword">if</span> slow == fast:
+            <span class="keyword">return</span> True  <span class="comment"># Cycle detected!</span>
     
-    <span class="keyword">return</span> <span class="keyword">false</span>;
-}
+    <span class="keyword">return</span> False  <span class="comment"># No cycle found</span></div>
+    </div>
 
-<span class="comment">// Find middle of linked list</span>
-<span class="keyword">function</span> findMiddle(head) {
-    <span class="keyword">let</span> slow = head, fast = head;
-    
-    <span class="keyword">while</span> (fast && fast.next) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    
-    <span class="keyword">return</span> slow; <span class="comment">// Middle node</span>
-}
-
-<span class="comment">// Array cycle detection (for problems like "Happy Number")</span>
-<span class="keyword">function</span> detectCycleInSequence(n) {
-    <span class="keyword">let</span> slow = n, fast = n;
-    
-    <span class="keyword">do</span> {
-        slow = getNext(slow);
-        fast = getNext(getNext(fast));
-    } <span class="keyword">while</span> (slow !== fast);
-    
-    <span class="keyword">return</span> slow === <span class="number">1</span>; <span class="comment">// If cycle at 1, it's happy</span>
-}</div>
-            </div>
+    <div class="explanation">
+        <h3>⏱️ Why Different Speeds?</h3>
+        <p>If there's a cycle, the fast pointer will eventually "lap" the slow pointer, causing them to meet. If there's no cycle, the fast pointer will reach the end first. This approach uses O(1) space compared to O(n) space with a hash set!</p>
+    </div>
+</div>
             
             <div class="interactive-section">
                 <h3>🎯 Try it: Happy Number Detection</h3>
