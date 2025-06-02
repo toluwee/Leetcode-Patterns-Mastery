@@ -1,55 +1,62 @@
-# Fine-Tuning GPT-2 with Hugging Face Transformers
+# LeetCode Patterns Mastery 🚀
 
-🚀 A complete walkthrough on how to fine-tune GPT-2 using the Hugging Face Transformers library with your own custom text data.
+A complete walkthrough on how to master foundational LeetCode patterns and build them up systematically.
 
-This guide covers everything from preparing your dataset to training, evaluating, and saving your fine-tuned model — perfect for NLP practitioners, researchers, and developers looking to customize large language models for specific tasks.
+This guide focuses on mastering the fundamentals of:
 
-🔗 **Live Demo:** [View the Guide](https://toluwee.github.io/gpt2-fine-tuning-guide/)
+- 🧭 Two Pointers  
+- 🔍 Sliding Window  
+- 🐢🐇 Fast and Slow Pointers  
 
----
+Interactive examples are included to enhance your understanding.
 
-## 🧠 Topics Covered
-
-- Environment Setup and Requirements
-- Preparing Custom Datasets
-- Tokenizing Data for GPT-2
-- Initializing and Configuring the Model
-- Training Using `Trainer` API
-- Evaluation and Model Saving
-- Pro Tips for Efficient Training
+🔗 **Live Demo:** [View the Guide](https://toluwee.github.io/Leetcode-Patterns-Mastery/)
 
 ---
 
-## 📦 Prerequisites
+## 🎯 Your Learning Path
 
-Before starting, ensure you have:
+### 📅 Week 1: Master the Basics
 
-- Python 3.8+
-- A GPU with 8GB+ VRAM
-- Installed dependencies:
+- **Two Pointers** – Practice with interactive examples  
+- **Sliding Window** – Both fixed and variable size windows  
+- **Fast & Slow Pointers** – Learn cycle detection and pointer dynamics
 
-```bash
-pip install transformers datasets torch accelerate
+---
 
-## 📁 File Structure
+## 📚 Essential Problems to Practice
 
-├── index.html        # Main blog content (rendered via GitHub Pages)
-├── README.md         # Project readme (this file)
+### 🧭 Two Pointers
+- [Two Sum II (sorted array) – LeetCode 167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+- [3Sum – LeetCode 15](https://leetcode.com/problems/3sum/)
+- [Container With Most Water – LeetCode 11](https://leetcode.com/problems/container-with-most-water/)
+- [Valid Palindrome – LeetCode 125](https://leetcode.com/problems/valid-palindrome/)
 
-## 🚀 Deployment
-This project is deployed via GitHub Pages.
+### 🔍 Sliding Window
+- [Maximum Average Subarray I – LeetCode 643](https://leetcode.com/problems/maximum-average-subarray-i/)
+- [Longest Substring Without Repeating Characters – LeetCode 3](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+- [Minimum Window Substring – LeetCode 76](https://leetcode.com/problems/minimum-window-substring/)
+- [Permutation in String – LeetCode 567](https://leetcode.com/problems/permutation-in-string/)
 
-To view it live:
+### 🐢🐇 Fast & Slow Pointers
+- [Linked List Cycle – LeetCode 141](https://leetcode.com/problems/linked-list-cycle/)
+- [Happy Number – LeetCode 202](https://leetcode.com/problems/happy-number/)
+- [Find Middle of Linked List – LeetCode 876](https://leetcode.com/problems/middle-of-the-linked-list/)
+- [Palindrome Linked List – LeetCode 234](https://leetcode.com/problems/palindrome-linked-list/)
 
-Clone this repo
+---
 
-Push changes to main branch
+## 🔧 Practice Strategy
 
-Enable Pages in GitHub → Settings → Pages → Source: main, Folder: / (root)
+- **Pattern Recognition** – Identify the pattern before jumping into code  
+- **Template Mastery** – Internalize key template structures  
+- **Variation Practice** – Solve different variations to deepen your grasp  
+- **Time Yourself** – Try to solve basic problems in **10–15 minutes**
 
-## ✍️ Author
-Tolu Olukoga
-LinkedIn | Email
+---
 
-## 📄 License
-This guide is open-source and free to use under the MIT License.
+🧪 Once you've practiced with the interactive examples and solved 2–3 problems in each category, you'll be ready to move on to:
+
+**→ Tree Traversals and DFS/BFS Patterns**
+
+Stay sharp and consistent. Happy coding! 💻
